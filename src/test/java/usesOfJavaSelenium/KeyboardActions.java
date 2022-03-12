@@ -20,7 +20,7 @@ public class KeyboardActions {
 		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
 		driver.get("https://www.google.com/");
 		
-
+        //using Keyboard without Actions class
 		driver.findElement(By.xpath("//input[@name='q']")).sendKeys("java");
 		String press1 = Keys.chord(Keys.CONTROL,"A"); 
 		driver.findElement(By.xpath("//input[@name='q']")).sendKeys(press1);
@@ -28,8 +28,10 @@ public class KeyboardActions {
 		String press2 = Keys.chord(Keys.CONTROL+"x");
 		driver.findElement(By.xpath("//input[@name='q']")).sendKeys(press2);
 		
-      
+		//<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>
+	
 		
+		//using Keyboard by Actions class
 		WebElement search=driver.findElement(By.xpath("//input[@name='q']"));
 		Actions ac=new Actions(driver);
 		ac.keyDown(search,Keys.SHIFT)
@@ -45,8 +47,8 @@ public class KeyboardActions {
 		.build()
 		.perform();
 		
-		
-		//driver.close();
+		Thread.sleep(3000);
+		driver.close();
 		
 
 	}

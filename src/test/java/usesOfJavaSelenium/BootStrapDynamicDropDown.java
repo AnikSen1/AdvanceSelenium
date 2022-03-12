@@ -14,26 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BootStrapDynamicDropDown {
 	static WebDriver driver;
 
-	public static void main(String[] args) throws InterruptedException {
-
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driver.get("https://www.amazon.com/");
-
-
-		BootStrapDynamicDropDown obj=new BootStrapDynamicDropDown();
-		obj.chooseDropDown("Register for a Business Account");
-		Thread.sleep(5000);
-		driver.navigate().back();
-		obj.chooseDropDown("Music Library");
-		driver.navigate().back();
-		obj.chooseDropDown("Recommendations");
-		obj.chooseDropDown("Browsing History");
-		
-		
-	}
+	
 
 	public void chooseDropDown(String text) {
 		WebElement signinBootstrap=driver.findElement(By.xpath("//a[@id='nav-link-accountList']//span[@id='nav-link-accountList-nav-line-1']"));
@@ -49,8 +30,27 @@ public class BootStrapDynamicDropDown {
 
 		}
 
+	}
+		public static void main(String[] args) throws InterruptedException {
 
+			WebDriverManager.chromedriver().setup();
+			driver=new ChromeDriver();
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			driver.get("https://www.amazon.com/");
+			//a[@id='nav-link-accountList']//span[@id='nav-link-accountList-nav-line-1']
 
+			BootStrapDynamicDropDown obj=new BootStrapDynamicDropDown();
+			obj.chooseDropDown("Register for a Business Account");
+			Thread.sleep(5000);
+			driver.navigate().back();
+			obj.chooseDropDown("Music Library");
+			driver.navigate().back();
+			obj.chooseDropDown("Recommendations");
+			obj.chooseDropDown("Browsing History");
+			
+			
+		
 
 	}
 
